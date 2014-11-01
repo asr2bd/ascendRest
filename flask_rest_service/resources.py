@@ -40,7 +40,7 @@ class Tag(restful.Resource):
         return '', 204
 
 class TagSearch(restful.Resource):
-    #baseline search by regex 
+    #baseline search by regex
     def get(self, word):
         return mongo.db.tags.find({'name': {'$regex': word}})
 
