@@ -23,7 +23,7 @@ class TagList(restful.Resource):
         #checks to make sure this tag doesn't exist
         queryJSON = mongo.db.tags.find_one({"name": jo['name']})
         #if it doesn't exist, insert it into DB
-        if not queryJSON['name']:
+        if not queryJSON:
             tag_id = mongo.db.tags.insert(jo)
             return mongo.db.tags.find_one({"_id": tag_id})
         else:
