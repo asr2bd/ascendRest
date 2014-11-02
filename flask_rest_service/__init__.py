@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from flask.ext import restful
 from flask.ext.pymongo import PyMongo
+from flask.ext.restful.utils import cors
 from flask import make_response
 from bson.json_util import dumps
 
@@ -27,6 +28,7 @@ DEFAULT_REPRESENTATIONS = {'application/json': output_json}
 
 api = restful.Api(app)
 api.representations = DEFAULT_REPRESENTATIONS
+api.decorators = [cors.crossdomain(origin='*', headers=['accept', 'Content-Type'])]
 
 import flask_rest_service.resources
 
