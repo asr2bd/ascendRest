@@ -20,6 +20,11 @@ def output_json(obj, code, headers=None):
     resp.headers.extend(headers or {})
     return resp
 
+def options (self):
+    return {'Allow' : 'GET' }, 200, \
+    { 'Access-Control-Allow-Origin': '*', \
+      'Access-Control-Allow-Methods' : 'PUT,GET' }
+
 DEFAULT_REPRESENTATIONS = {'application/json': output_json}
 
 api = restful.Api(app)

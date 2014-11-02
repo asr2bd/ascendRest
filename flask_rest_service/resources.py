@@ -46,6 +46,7 @@ class TagSearch(restful.Resource):
     def get(self, word):
         return mongo.db.tags.find({'name': {'$regex': word}})
 
+
 class Root(restful.Resource):
     def get(self):
         return {
