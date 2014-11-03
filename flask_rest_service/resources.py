@@ -23,7 +23,7 @@ class TagList(restful.Resource):
         jo = args
 
         #checks to make sure this tag doesn't exist
-        queryJSON = mongo.db.tags.find_one({"name": jo['name']})
+        queryJSON = mongo.db.tags.find_one({"value": jo['name']})
         #if it doesn't exist, insert it into DB
         if not queryJSON:
             tag_id = mongo.db.tags.insert(jo)
@@ -44,7 +44,7 @@ class Tag(restful.Resource):
 class TagSearch(restful.Resource):
     #baseline search by regex
     def get(self, word):
-        return mongo.db.tags.find({'name': {'$regex': word}})
+        return mongo.db.tags.find({'value': {'$regex': word}})
 
 class TagJQuery(restful.Resource):
     def __init__(self, *args, **kwargs):
@@ -55,7 +55,7 @@ class TagJQuery(restful.Resource):
 
     def get(self):
         args = self.parser.parse_args()
-        return mongo.db.tags.find({'name': {'$regex': args['term']}})
+        return mongo.db.tags.find({'value': {'$regex': args['term']}})
 
 class Root(restful.Resource):
     def get(self):

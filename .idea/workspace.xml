@@ -36,8 +36,8 @@
       <file leaf-file-name="resources.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flask_rest_service/resources.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.630662" vertical-offset="538" max-vertical-offset="1125">
-              <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+            <state vertical-scroll-proportion="-1.0529197" vertical-offset="577" max-vertical-offset="1125">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="6" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -692,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flask_rest_service/resources.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.630662" vertical-offset="538" max-vertical-offset="1125">
-          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+        <state vertical-scroll-proportion="-1.0529197" vertical-offset="577" max-vertical-offset="1125">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="6" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>
