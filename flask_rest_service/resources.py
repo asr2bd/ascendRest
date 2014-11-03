@@ -47,9 +47,15 @@ class TagSearch(restful.Resource):
         return mongo.db.tags.find({'name': {'$regex': word}})
 
 class TagJQuery(restful.Resource):
-    def get(self, word):
-        return mongo.db.tags.find({'name': {'$regex': word}})
+    def __init__(self, *args, **kwargs):
+        self.parser = reqparse.RequestParser()
+        self.parser.add_argument('term', type=str, location='args')
 
+        super(TagJQuery, self).__init__()
+
+    def get(self):
+        args = self.parser.parse_args()
+        return mongo.db.tags.find({'name': {'$regex': args['term']}})
 
 class Root(restful.Resource):
     def get(self):
@@ -61,4 +67,4 @@ api.add_resource(Root, '/')
 api.add_resource(TagList, '/tags/')
 api.add_resource(Tag, '/tags/<ObjectId:tag_id>')
 api.add_resource(TagSearch, '/tags/search/<word>')
-api.add_resource(TagJQuery, '/tags/jquery?term=<word>')
+api.add_resource(TagJQuery, '/frontend/jquery')
