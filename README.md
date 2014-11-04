@@ -61,7 +61,7 @@ $.ajax({
 
 
 // AJAX Request: Tag List (https://glacial-springs-8093.herokuapp.com/tags/)
-
+<pre><code>
 $.ajax({
      url: "https://glacial-springs-8093.herokuapp.com/tags/",
      type: "GET",
@@ -81,10 +81,10 @@ $.ajax({
           console.log(errorThrown);
      },
 });
-
+</code></pre>
 
 // AJAX Request: Delete item (https://glacial-springs-8093.herokuapp.com/tags/objID)
-
+<code><pre>
 $.ajax({
      url: "https://glacial-springs-8093.herokuapp.com/tags/objID",
      type: "DELETE",
@@ -104,10 +104,10 @@ $.ajax({
           console.log(errorThrown);
      },
 });
-
+</pre></code>
 
 // AJAX Request: JQuery autocomplete (https://glacial-springs-8093.herokuapp.com/frontend/jquery?term=t)
-
+<pre><code>
 $.ajax({
      url: "https://glacial-springs-8093.herokuapp.com/frontend/jquery?term=t",
      type: "GET",
@@ -127,3 +127,4 @@ $.ajax({
           console.log(errorThrown);
      },
 });
+</code></pre>
