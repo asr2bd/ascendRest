@@ -2,9 +2,9 @@ ascendRest
 ==========
 
 API calls 
-
 // AJAX Request: Add item (https://glacial-springs-8093.herokuapp.com/tags/)
 
+<pre><code>
 $.ajax({
      url: "https://glacial-springs-8093.herokuapp.com/tags/",
      type: "POST",
@@ -34,6 +34,7 @@ $.ajax({
           console.log(errorThrown);
      },
 });
+</code></pre>
 
 
 // AJAX Request: Search for item (https://glacial-springs-8093.herokuapp.com/tags/search/test)
