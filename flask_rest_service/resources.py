@@ -21,7 +21,6 @@ class TagList(restful.Resource):
         if not args['value']:
             abort(400)
         jo = args
-
         #checks to make sure this tag doesn't exist
         queryJSON = mongo.db.tags.find_one({"value": jo['value']})
         #if it doesn't exist, insert it into DB
