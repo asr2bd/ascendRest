@@ -56,6 +56,7 @@ class TagJQuery(restful.Resource):
         args = self.parser.parse_args()
         return mongo.db.tags.find({'value': {'$regex': args['term']}})
 
+class TagAutocomplete(restful.Resource):
     def post(self):
         args = self.parser.parse_args()
         #looks to see if expected input exists
@@ -75,3 +76,4 @@ api.add_resource(TagList, '/tags/')
 api.add_resource(Tag, '/tags/<ObjectId:tag_id>')
 api.add_resource(TagSearch, '/tags/search/<word>')
 api.add_resource(TagJQuery, '/frontend/jquery')
+api.add_resource(TagJQuery, '/frontend/autocomplete')
