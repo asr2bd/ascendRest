@@ -56,6 +56,14 @@ class TagJQuery(restful.Resource):
         args = self.parser.parse_args()
         return mongo.db.tags.find({'value': {'$regex': args['term']}})
 
+    def post(self):
+        args = self.parser.parse_args()
+        #looks to see if expected input exists
+        if not args['term']:
+            abort(400)
+        #checks to make sure this tag doesn't exist
+        return mongo.db.tags.find({'value': {'$regex': args['term']}})
+
 class Root(restful.Resource):
     def get(self):
         return {
