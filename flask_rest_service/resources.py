@@ -52,6 +52,7 @@ class TagJQuery(restful.Resource):
 
         super(TagJQuery, self).__init__()
 
+
     def get(self):
         args = self.parser.parse_args()
         return mongo.db.tags.find({'value': {'$regex': args['term']}})
