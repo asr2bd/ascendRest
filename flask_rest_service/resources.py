@@ -11,6 +11,7 @@ class TagList(restful.Resource):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('value', type=str, location='json')
         self.parser.add_argument('parseId', type=str, location='json')
+        self.parser.add_argument('type', type=str, location='json')
 
         super(TagList, self).__init__()
     def get(self):
