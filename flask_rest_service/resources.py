@@ -41,6 +41,16 @@ class Tag(restful.Resource):
         mongo.db.tags.remove({"_id": tag_id})
         return '', 204
 
+class TagByName(restful.Resource):
+    #returning and deleting tags by ID
+    def get(self, tag_value):
+        return mongo.db.tags.find_one_or_404({"value": tag_value})
+
+    def delete(self, tag_value):
+        tag = mongo.db.tags.find_one_or_404({"value": tag_value})
+        mongo.db.tags.remove({"_id": tag._id})
+        return '', 204
+
 class TagSearch(restful.Resource):
     #baseline search by regex
     def get(self, word):
@@ -67,5 +77,6 @@ class Root(restful.Resource):
 api.add_resource(Root, '/')
 api.add_resource(TagList, '/tags/')
 api.add_resource(Tag, '/tags/<ObjectId:tag_id>')
+api.add_resource(TagByName,'/tagbyname/<ObjectId:tag_name>')
 api.add_resource(TagSearch, '/tags/search/<word>')
 api.add_resource(TagJQuery, '/frontend/jquery')
