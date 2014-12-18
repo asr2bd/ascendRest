@@ -81,6 +81,6 @@ class Root(restful.Resource):
 api.add_resource(Root, '/')
 api.add_resource(TagList, '/tags/')
 api.add_resource(Tag, '/tags/<ObjectId:tag_id>')
-api.add_resource(RemoveTag,'/removeTag')
+api.add_resource(RemoveTag,'/removeTag/')
 api.add_resource(TagSearch, '/tags/search/<word>')
 api.add_resource(TagJQuery, '/frontend/jquery')
