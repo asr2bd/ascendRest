@@ -46,7 +46,7 @@ class RemoveTag(restful.Resource):
     def __init__(self, *args, **kwargs):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('value', type=str, location='json')
-    def post(self):
+    def delete(self):
         args = self.parser.parse_args()
         #looks to see if expected input exists
         if not args['value']:
