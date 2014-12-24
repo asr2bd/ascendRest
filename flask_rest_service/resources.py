@@ -70,7 +70,7 @@ class TagJQuery(restful.Resource):
 
     def get(self):
         args = self.parser.parse_args()
-        return mongo.db.tags.find({'value': {'$regex': args['term']}}).sort([('value', flask_pymongo.ASCENDING)])
+        return mongo.db.tags.find({'value': {'$regex': args['term']}}).sort('value', pymongo.ASCENDING)
 
 
 class Root(restful.Resource):
