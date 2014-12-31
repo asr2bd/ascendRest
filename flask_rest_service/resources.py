@@ -71,7 +71,7 @@ class TagJQuery(restful.Resource):
     def get(self):
         args = self.parser.parse_args()
         values = mongo.db.tags.find({'value': {'$regex': args['term']}})
-        return values
+        return values.sort('value',1)
 
 
 class Root(restful.Resource):
