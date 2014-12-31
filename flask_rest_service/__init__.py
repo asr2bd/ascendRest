@@ -6,12 +6,13 @@ from flask.ext.pymongo import PyMongo
 from flask.ext.restful.utils import cors
 from flask import make_response
 from bson.json_util import dumps
+import CONFIG
+
+app = Flask(__name__)
 
 MONGO_URL = os.environ.get('MONGO_URL')
 if not MONGO_URL:
-    MONGO_URL = "mongodb://localhost:27017/rest"
-
-app = Flask(__name__)
+    MONGO_URL = CONFIG.MONGO_URI
 
 app.config['MONGO_URI'] = MONGO_URL
 mongo = PyMongo(app)
