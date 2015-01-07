@@ -1,6 +1,6 @@
 __name__ = 'ascendrest'
 import json
-from flask import request, abort
+from flask import request, abort, jsonify
 from flask.ext import restful
 from flask.ext.restful import reqparse
 from flask_rest_service import app, api, mongo
@@ -70,9 +70,11 @@ class TagJQuery(restful.Resource):
 
     def get(self):
         args = self.parser.parse_args()
-        tags = mongo.db.tags.find({'value': {'$regex': args['term']}})
-        tags.sort('value',1).sort('type',1)
-        return tags
+        tags = mongo.db.tags.find({"$and":[{'value': {'$regex': args['term']}},{"type":{"$ne":"title"}}]})
+        tags.sort('value',1)
+        titles = mongo.db.tags.find({'value': {'$regex': args['term']}},{"type":"title"});
+        tags.sort('value',1)
+        return {'tags':tags,"titles":titles}
 
 
 class Root(restful.Resource):
